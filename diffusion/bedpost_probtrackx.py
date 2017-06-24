@@ -17,6 +17,8 @@ fsamples = os.path.join(datadir, 'Diffusion_7T.bedpostX', 'merged_f1samples.nii.
 phsamples = os.path.join(datadir, 'Diffusion_7T.bedpostX', 'merged_ph1samples.nii.gz')
 brain_mask = os.path.join(datadir, 'Diffusion_7T', 'nodif_brain_mask.nii.gz')
 
+seed = os.path.join(datadir, 'Diffusion_7T', 'IC_L_sphere_bin.nii.gz')
+
 from nipype.interfaces import fsl
 bedp = pe.Node(fsl.BEDPOSTX5(), name='bedpost')
 bedp.inputs.bvecs = bvecs 
@@ -30,7 +32,7 @@ bedp.inputs.out_dir = os.path.join(datadir, 'Diffusion_7T.bedpostX')
 
 from nipype.interfaces import fsl
 pbx2 = pe.Node(fsl.ProbTrackX2(), name='probtrackx')
-pbx2.inputs.seed = 'seed_source.nii.gz'
+pbx2.inputs.seed = seed
 pbx2.inputs.thsamples = thsamples
 pbx2.inputs.fsamples = fsamples
 pbx2.inputs.phsamples = phsamples.nii.gz
