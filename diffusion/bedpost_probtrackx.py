@@ -34,8 +34,7 @@ pbx2.inputs.mask = brain_mask
 pbx2.inputs.out_dir = os.path.join(datadir, 'Diffusion_7T.probtrackx2')
 
 wf = pe.Workflow(name='fdt')
-wf.connect([(bedp, pbx2,[('mask','mask'),
-                         ('merged_fsamples','fsamples'),
+wf.connect([(bedp, pbx2,[('merged_fsamples','fsamples'),
                          ('merged_phsamples','phsamples'),
                          ('merged_thsamples','thsamples')]
                          )])
