@@ -40,5 +40,5 @@ wf.connect([(bedp, pbx2,[('merged_fsamples','fsamples'),
                          )])
 
 wf.run(plugin='SLURM', 
-       sbatch_args='--gres=gpu:1 --time=18:00:00 --qos=gablab --mem=40G -c 4')
+       plugin_args='--gres=gpu:1 --time=18:00:00 --qos=gablab --mem=40G -c 4')
 
